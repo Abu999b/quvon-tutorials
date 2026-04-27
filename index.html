@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,47 +68,7 @@ a { text-decoration: none; color: inherit; }
 /* ════════════════════════════
    NAVBAR
 ════════════════════════════ */
-/* .navbar {
-  position: sticky; top: 0; z-index: 300;
-  background: rgba(255,255,255,0.97);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--line);
-}
-.nav-wrap {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 14px 0; gap: 16px;
-}
-.nav-brand { display: flex; align-items: center; gap: 11px; }
-.logo-mark {
-  width: 42px; height: 42px; background: var(--purple);
-  border-radius: 10px; display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; position: relative; overflow: hidden;
-}
-.logo-mark::before {
-  content: '';
-  position: absolute; width: 22px; height: 22px;
-  background: rgba(255,255,255,.15); border-radius: 5px;
-  transform: rotate(45deg); top: -6px; right: -6px;
-}
-.logo-q {
-  font-family: 'Outfit', sans-serif; font-weight: 900;
-  font-size: 1.4rem; color: #fff; position: relative; z-index: 1;
-}
-.logo-q span { color: var(--orange); }
-.brand-name { font-weight: 900; font-size: 1.3rem; color: var(--ink); letter-spacing: -0.02em; }
-.brand-name em { color: var(--purple); font-style: normal; }
-.brand-tag { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
-.brand-text { display: flex; flex-direction: column; gap: 1px; }
-
-.nav-links { display: flex; align-items: center; gap: 6px; }
-.nav-links a {
-  font-size: 0.88rem; font-weight: 600; color: var(--muted);
-  padding: 7px 14px; border-radius: 8px; transition: all 0.15s;
-}
-.nav-links a:hover { color: var(--purple); background: var(--light); }
-
-.nav-right { display: flex; align-items: center; gap: 10px; } */
-  .navbar {
+.navbar {
   position: sticky; top: 0; z-index: 200;
   background: rgba(255,255,255,0.97);
   backdrop-filter: blur(18px);
@@ -129,17 +88,74 @@ a { text-decoration: none; color: inherit; }
   text-decoration: none; flex-shrink: 0;
 }
 
+/* ── LOGO IMAGE ── */
 .logo-hex {
-  width: 32px; height: 32px; flex-shrink: 0;
-  position: relative; display: flex; align-items: center; justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid var(--line);
 }
-.logo-hex svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-.logo-hex span { position: relative; z-index: 1; font-size: 11px; font-weight: 800; color: #fff; line-height: 1; }
 
-.brand-text { display: flex; flex-direction: column; gap: 0; }
-.brand-name { font-family: 'Syne', sans-serif; font-size: 1.15rem; color: var(--navy); letter-spacing: -0.01em; line-height: 1.15; }
-.brand-name em { color: var(--blue); font-style: normal; }
-.brand-tag  { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); }
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── BRAND TEXT ── */
+.brand-text { display: flex; flex-direction: column; gap: 1px; }
+
+.brand-name {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  /* Dark background for the navbar brand pill */
+  background: var(--ink);
+  padding: 2px 10px 2px 8px;
+  border-radius: 7px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* "Quvon" — white */
+.brand-name .word-quvon {
+  color: #ffffff;
+  font-style: normal;
+}
+
+/* space between words */
+.brand-name .word-space {
+  display: inline-block;
+  width: 6px;
+}
+
+/* "Tutorials" — theme purple */
+.brand-name .word-tutorials {
+  color: var(--purple-l);
+  font-style: normal;
+}
+
+.brand-tag {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-left: 2px;
+}
+
+.nav-links { display: flex; align-items: center; gap: 6px; }
+.nav-links a {
+  font-size: 0.88rem; font-weight: 600; color: var(--muted);
+  padding: 7px 14px; border-radius: 8px; transition: all 0.15s;
+}
+.nav-links a:hover { color: var(--purple); background: var(--light); }
 
 .nav-right { display: flex; align-items: center; gap: 9px; flex-shrink: 0; }
 
@@ -150,42 +166,14 @@ a { text-decoration: none; color: inherit; }
   border-radius: 8px; padding: 7px 14px;
   text-decoration: none; transition: border-color 0.15s;
 }
-.nav-phone:hover { border-color: #b0bed4; }
-
-.phone-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--green);
-  box-shadow: 0 0 0 2px rgba(0,184,122,.2);
-  flex-shrink: 0;
-}
-
-/* .nav-phone {
-  display: flex; align-items: center; gap: 8px;
-  font-size: 0.88rem; font-weight: 700; color: var(--ink);
-  background: var(--light); border: 1.5px solid var(--line);
-  border-radius: 9px; padding: 8px 16px; transition: border-color 0.15s;
-}
 .nav-phone:hover { border-color: var(--purple-l); }
-.phone-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  background: var(--green); box-shadow: 0 0 0 3px rgba(46,170,46,.2);
-  flex-shrink: 0; animation: pulse 2s infinite;
-} */
-  
-.nav-phone {
-  display: flex; align-items: center; gap: 8px;
-  font-size: 0.84rem; font-weight: 700; color: var(--ink);
-  background: var(--light); border: 1px solid var(--line);
-  border-radius: 8px; padding: 7px 14px;
-  text-decoration: none; transition: border-color 0.15s;
-}
-.nav-phone:hover { border-color: #b0bed4; }
 
 .phone-dot {
   width: 8px; height: 8px; border-radius: 50%;
   background: var(--green);
-  box-shadow: 0 0 0 2px rgba(0,184,122,.2);
+  box-shadow: 0 0 0 3px rgba(46,170,46,.2);
   flex-shrink: 0;
+  animation: pulse 2s infinite;
 }
 @keyframes pulse { 0%,100%{box-shadow:0 0 0 3px rgba(46,170,46,.2)} 50%{box-shadow:0 0 0 5px rgba(46,170,46,.08)} }
 
@@ -258,20 +246,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .hero-ctas { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
-.logo-hex {
-  width: 42px;
-  height: 42px;
-  border-radius: 5px;
-  overflow: hidden;
-  flex-shrink: 0;
-}
 
-.logo-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
 /* Grade pills */
 .grade-row {
   display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
@@ -389,14 +364,9 @@ a { text-decoration: none; color: inherit; }
   display: flex; align-items: center; gap: 9px;
   font-size: 0.86rem; font-weight: 600; color: var(--ink);
 }
-.srv-list li::before {
-  content: ''; width: 18px; height: 18px; border-radius: 50%;
-  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
-  font-size: 10px; font-weight: 900;
-}
-.li-purple::before { background: rgba(91,43,224,.12); color: var(--purple); content: '✓'; display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; font-size: 10px; }
-.li-green::before  { background: rgba(46,170,46,.12);  color: var(--green);  content: '✓'; display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; font-size: 10px; }
-.li-orange::before { background: rgba(249,98,0,.12);   color: var(--orange); content: '✓'; display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; font-size: 10px; }
+.li-purple::before { background: rgba(91,43,224,.12); color: var(--purple); content: '✓'; display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; font-size: 10px; flex-shrink: 0; }
+.li-green::before  { background: rgba(46,170,46,.12);  color: var(--green);  content: '✓'; display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; font-size: 10px; flex-shrink: 0; }
+.li-orange::before { background: rgba(249,98,0,.12);   color: var(--orange); content: '✓'; display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; font-size: 10px; flex-shrink: 0; }
 
 .srv-footer {
   border-top: 1.5px solid var(--line); padding: 16px 22px;
@@ -460,7 +430,6 @@ a { text-decoration: none; color: inherit; }
 .why-title { font-weight: 800; font-size: 0.9rem; color: #fff; margin-bottom: 6px; }
 .why-desc  { font-size: 0.78rem; color: rgba(255,255,255,.4); line-height: 1.65; }
 
-/* tagline box */
 .why-cta {
   margin-top: 36px;
   background: linear-gradient(135deg, var(--purple) 0%, var(--purple-d) 100%);
@@ -468,7 +437,6 @@ a { text-decoration: none; color: inherit; }
   display: flex; align-items: center; justify-content: space-between;
   gap: 24px; flex-wrap: wrap;
 }
-.wcta-text { }
 .wcta-title { font-weight: 900; font-size: 1.6rem; color: #fff; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 5px; }
 .wcta-sub   { font-size: 0.9rem; color: rgba(255,255,255,.55); }
 
@@ -495,7 +463,6 @@ a { text-decoration: none; color: inherit; }
    CONTACT
 ════════════════════════════ */
 .contact-sec { background: var(--white); padding: 80px 0; }
-
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
 
 .ci-list { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
@@ -515,7 +482,6 @@ a { text-decoration: none; color: inherit; }
 .ci-lbl { font-size: 0.64rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 3px; }
 .ci-val { font-size: 0.95rem; font-weight: 700; color: var(--ink); line-height: 1.45; }
 
-/* Enroll card */
 .enroll-card {
   background: var(--ink); border-radius: 20px; padding: 36px 30px;
   position: relative; overflow: hidden;
@@ -560,8 +526,14 @@ footer {
   background: var(--purple); display: flex; align-items: center;
   justify-content: center; font-weight: 900; font-size: 0.9rem; color: #fff;
 }
-.foot-name { font-weight: 800; font-size: 0.95rem; color: #fff; }
-.foot-name em { color: var(--purple-l); font-style: normal; }
+.foot-name {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 0.95rem;
+}
+.foot-name .word-quvon    { color: #ffffff; font-style: normal; }
+.foot-name .word-tutorials { color: var(--purple-l); font-style: normal; }
+
 .foot-copy { font-size: 0.76rem; color: rgba(255,255,255,.24); }
 .foot-links { display: flex; gap: 18px; }
 .foot-links a { font-size: 0.76rem; color: rgba(255,255,255,.35); transition: color 0.15s; }
@@ -601,25 +573,35 @@ footer {
 <body>
 
 <!-- ══ NAVBAR ══ -->
-<!-- ══ NAVBAR ══ -->
 <nav class="navbar">
   <div class="container">
     <div class="nav-wrap">
 
-     <a href="#" class="nav-brand">
-  <div class="logo-hex">
-    <img src="/raju.jpg" alt="Quvon Tutorials Logo" class="logo-img">
-  </div>
-  <div class="brand-text">
-    <span class="brand-name">Quvon <em>Tutorials</em></span>
-    <span class="brand-tag">Learn · Code · Grow</span>
-  </div>
-</a>
+      <a href="#" class="nav-brand">
+        <div class="logo-hex">
+          <img src="/raju.jpg" alt="Quvon Tutorials Logo" class="logo-img">
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">
+            <span class="word-quvon">Quvon</span>
+            <span class="word-space"></span>
+            <span class="word-tutorials">Tutorials</span>
+          </span>
+          <span class="brand-tag">Learn · Code · Grow</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="#services">Courses</a>
+        <a href="#students">Students</a>
+        <a href="#why">Why Us</a>
+        <a href="#contact">Contact</a>
+      </div>
 
       <div class="nav-right">
         <a href="tel:9392648991" class="nav-phone">
           <span class="phone-dot"></span>
-          <span class="phone-label">9392648991</span>
+          <span>9392648991</span>
         </a>
       </div>
 
@@ -876,7 +858,6 @@ footer {
 
     <div class="sec-head reveal" style="margin-bottom:36px;">
       <div class="sec-eyebrow" style="color:rgba(255,255,255,.5);">
-        <span style="background:rgba(255,255,255,.3);"></span>
         Why Quvon Tutorials
       </div>
       <h2 class="sec-title" style="color:#fff;">Better Prep. Better Scores.<br>Better Career.</h2>
@@ -996,7 +977,9 @@ footer {
     <div class="foot-wrap">
       <div class="foot-brand">
         <div class="foot-logo">Q</div>
-        <span class="foot-name">Quvon <em>Tutorials</em></span>
+        <span class="foot-name">
+          <span class="word-quvon">Quvon </span><span class="word-tutorials">Tutorials</span>
+        </span>
       </div>
       <div class="foot-copy">© 2026 Quvon Tutorials · All rights reserved</div>
       <div class="foot-links">
