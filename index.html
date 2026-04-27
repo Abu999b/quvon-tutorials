@@ -1,3 +1,1029 @@
+/* <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quvon Tutorials — Learn. Code. Grow.</title>
+  <link rel="icon" href="/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --purple:   #5b2be0;
+  --purple-d: #4219b8;
+  --purple-l: #7c54f0;
+  --orange:   #f96200;
+  --orange-l: #ff8534;
+  --green:    #2eaa2e;
+  --green-l:  #3ecf3e;
+  --ink:      #0e0a24;
+  --ink2:     #2d2650;
+  --muted:    #7b74a0;
+  --light:    #f5f3ff;
+  --line:     #e8e2ff;
+  --white:    #ffffff;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  overflow-x: hidden;
+  line-height: 1.65;
+}
+
+a { text-decoration: none; color: inherit; }
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px; font-family: inherit; font-size: 0.9rem; font-weight: 700;
+  border-radius: 10px; padding: 12px 26px; cursor: pointer;
+  border: none; transition: all 0.18s; white-space: nowrap; letter-spacing: 0.01em;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-purple { background: var(--purple); color: #fff; box-shadow: 0 5px 20px rgba(91,43,224,.3); }
+.btn-purple:hover { background: var(--purple-d); box-shadow: 0 8px 28px rgba(91,43,224,.44); }
+.btn-orange { background: var(--orange); color: #fff; box-shadow: 0 5px 20px rgba(249,98,0,.3); }
+.btn-orange:hover { background: #da5600; box-shadow: 0 8px 28px rgba(249,98,0,.44); }
+.btn-outline { background: transparent; color: var(--purple); border: 2px solid var(--purple); }
+.btn-outline:hover { background: var(--purple); color: #fff; }
+.btn-ghost { background: rgba(255,255,255,.1); color: #fff; border: 1.5px solid rgba(255,255,255,.25); }
+.btn-ghost:hover { background: rgba(255,255,255,.2); border-color: rgba(255,255,255,.5); }
+.btn-full { width: 100%; }
+.btn-lg { padding: 15px 32px; font-size: 1rem; }
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ════════════════════════════
+   NAVBAR
+════════════════════════════ */
+/* .navbar {
+  position: sticky; top: 0; z-index: 300;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 0; gap: 16px;
+}
+.nav-brand { display: flex; align-items: center; gap: 11px; }
+.logo-mark {
+  width: 42px; height: 42px; background: var(--purple);
+  border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; position: relative; overflow: hidden;
+}
+.logo-mark::before {
+  content: '';
+  position: absolute; width: 22px; height: 22px;
+  background: rgba(255,255,255,.15); border-radius: 5px;
+  transform: rotate(45deg); top: -6px; right: -6px;
+}
+.logo-q {
+  font-family: 'Outfit', sans-serif; font-weight: 900;
+  font-size: 1.4rem; color: #fff; position: relative; z-index: 1;
+}
+.logo-q span { color: var(--orange); }
+.brand-name { font-weight: 900; font-size: 1.3rem; color: var(--ink); letter-spacing: -0.02em; }
+.brand-name em { color: var(--purple); font-style: normal; }
+.brand-tag { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.brand-text { display: flex; flex-direction: column; gap: 1px; }
+
+.nav-links { display: flex; align-items: center; gap: 6px; }
+.nav-links a {
+  font-size: 0.88rem; font-weight: 600; color: var(--muted);
+  padding: 7px 14px; border-radius: 8px; transition: all 0.15s;
+}
+.nav-links a:hover { color: var(--purple); background: var(--light); }
+
+.nav-right { display: flex; align-items: center; gap: 10px; } */
+  .navbar {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+}
+
+.nav-brand {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; flex-shrink: 0;
+}
+
+.logo-hex {
+  width: 32px; height: 32px; flex-shrink: 0;
+  position: relative; display: flex; align-items: center; justify-content: center;
+}
+.logo-hex svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.logo-hex span { position: relative; z-index: 1; font-size: 11px; font-weight: 800; color: #fff; line-height: 1; }
+
+.brand-text { display: flex; flex-direction: column; gap: 0; }
+.brand-name { font-family: 'Syne', sans-serif; font-size: 1.15rem; color: var(--navy); letter-spacing: -0.01em; line-height: 1.15; }
+.brand-name em { color: var(--blue); font-style: normal; }
+.brand-tag  { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); }
+
+.nav-right { display: flex; align-items: center; gap: 9px; flex-shrink: 0; }
+
+.nav-phone {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.84rem; font-weight: 700; color: var(--ink);
+  background: var(--light); border: 1px solid var(--line);
+  border-radius: 8px; padding: 7px 14px;
+  text-decoration: none; transition: border-color 0.15s;
+}
+.nav-phone:hover { border-color: #b0bed4; }
+
+.phone-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 2px rgba(0,184,122,.2);
+  flex-shrink: 0;
+}
+
+/* .nav-phone {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.88rem; font-weight: 700; color: var(--ink);
+  background: var(--light); border: 1.5px solid var(--line);
+  border-radius: 9px; padding: 8px 16px; transition: border-color 0.15s;
+}
+.nav-phone:hover { border-color: var(--purple-l); }
+.phone-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--green); box-shadow: 0 0 0 3px rgba(46,170,46,.2);
+  flex-shrink: 0; animation: pulse 2s infinite;
+} */
+  
+.nav-phone {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.84rem; font-weight: 700; color: var(--ink);
+  background: var(--light); border: 1px solid var(--line);
+  border-radius: 8px; padding: 7px 14px;
+  text-decoration: none; transition: border-color 0.15s;
+}
+.nav-phone:hover { border-color: #b0bed4; }
+
+.phone-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 2px rgba(0,184,122,.2);
+  flex-shrink: 0;
+}
+@keyframes pulse { 0%,100%{box-shadow:0 0 0 3px rgba(46,170,46,.2)} 50%{box-shadow:0 0 0 5px rgba(46,170,46,.08)} }
+
+/* ════════════════════════════
+   HERO
+════════════════════════════ */
+.hero {
+  background: var(--ink);
+  position: relative; overflow: hidden;
+  padding: 0;
+}
+.hero-bg {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 65% at 75% 40%, rgba(91,43,224,.25) 0%, transparent 60%),
+    radial-gradient(ellipse 35% 45% at 5% 80%, rgba(249,98,0,.14) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 95% 90%, rgba(46,170,46,.1) 0%, transparent 55%);
+}
+.hero-grid {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.hero-inner {
+  position: relative;
+  display: grid; grid-template-columns: 1fr 400px;
+  gap: 0; min-height: 580px;
+}
+
+.hero-left {
+  padding: 68px 52px 68px 0;
+  display: flex; flex-direction: column; justify-content: center;
+}
+
+/* Flash banner */
+.flash-bar {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: rgba(249,98,0,.15); border: 1px solid rgba(249,98,0,.3);
+  border-radius: 7px; padding: 6px 16px; margin-bottom: 26px;
+  width: fit-content;
+}
+.flash-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--orange); box-shadow: 0 0 8px var(--orange);
+  flex-shrink: 0; animation: blink 1.8s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
+.flash-text { font-size: 0.73rem; font-weight: 700; color: #ffa06a; letter-spacing: 0.06em; text-transform: uppercase; }
+
+.hero h1 {
+  font-weight: 900; font-size: clamp(2rem, 3.8vw, 3.2rem);
+  line-height: 1.1; color: #fff; letter-spacing: -0.025em;
+  margin-bottom: 10px;
+}
+.hero h1 .accent-orange { color: var(--orange); }
+.hero h1 .accent-green  { color: var(--green-l); }
+.hero h1 .plus { color: rgba(255,255,255,.35); font-weight: 400; }
+
+.hero-tagline {
+  font-size: 1rem; font-weight: 600; color: var(--purple-l);
+  margin-bottom: 14px; letter-spacing: 0.01em;
+}
+
+.hero-sub {
+  font-size: 0.95rem; color: rgba(255,255,255,.5);
+  line-height: 1.8; max-width: 440px; margin-bottom: 32px;
+}
+
+.hero-ctas { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
+.logo-hex {
+  width: 42px;
+  height: 42px;
+  border-radius: 5px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Grade pills */
+.grade-row {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  padding-top: 28px; border-top: 1px solid rgba(255,255,255,.08);
+}
+.grade-label { font-size: 0.68rem; font-weight: 700; color: rgba(255,255,255,.3); text-transform: uppercase; letter-spacing: 0.1em; margin-right: 4px; }
+.grade-pill {
+  font-size: 0.78rem; font-weight: 700; padding: 4px 12px;
+  border-radius: 20px; border: 1px solid rgba(255,255,255,.12);
+  color: rgba(255,255,255,.6); transition: all 0.15s; cursor: default;
+}
+.grade-pill:hover { border-color: var(--purple-l); color: #fff; }
+.grade-pill.hi { border-color: var(--purple-l); color: var(--purple-l); background: rgba(91,43,224,.12); }
+
+/* Hero right panel */
+.hero-right {
+  background: rgba(255,255,255,.04);
+  border-left: 1px solid rgba(255,255,255,.07);
+  padding: 32px 28px;
+  display: flex; flex-direction: column; gap: 12px;
+  justify-content: center;
+}
+.hr-label {
+  font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.14em; color: rgba(255,255,255,.3); margin-bottom: 4px;
+}
+.service-card {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 12px; padding: 16px 18px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.service-card:hover { border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.08); }
+.sc-head { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.sc-ico {
+  width: 38px; height: 38px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.sc-ico-1 { background: rgba(91,43,224,.25); }
+.sc-ico-2 { background: rgba(46,170,46,.25); }
+.sc-ico-3 { background: rgba(249,98,0,.25); }
+.sc-title { font-size: 0.9rem; font-weight: 800; color: #fff; }
+.sc-badge {
+  margin-left: auto; font-size: 0.58rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  padding: 3px 9px; border-radius: 5px;
+}
+.sb-purple { background: rgba(91,43,224,.3); color: #b08cff; }
+.sb-green  { background: rgba(46,170,46,.3);  color: #6ee06e; }
+.sb-orange { background: rgba(249,98,0,.3);   color: #ffaa6e; }
+.sc-items { display: flex; flex-wrap: wrap; gap: 5px; }
+.sc-item {
+  font-size: 0.73rem; font-weight: 600; color: rgba(255,255,255,.5);
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.07);
+  padding: 3px 10px; border-radius: 5px;
+}
+
+/* ════════════════════════════
+   SECTION HEADER
+════════════════════════════ */
+.sec-head { margin-bottom: 48px; }
+.sec-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--purple); margin-bottom: 10px;
+}
+.sec-eyebrow::before {
+  content: ''; width: 18px; height: 3px;
+  background: var(--purple); border-radius: 3px;
+}
+.sec-title {
+  font-weight: 900; font-size: clamp(1.8rem, 3vw, 2.5rem);
+  line-height: 1.15; color: var(--ink); letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+.sec-sub { font-size: 0.95rem; color: var(--muted); max-width: 500px; line-height: 1.8; }
+
+/* ════════════════════════════
+   COURSES / SERVICES
+════════════════════════════ */
+.services-sec { background: var(--light); padding: 80px 0; }
+
+.services-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+
+.srv-card {
+  background: var(--white); border: 2px solid var(--line);
+  border-radius: 18px; overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.srv-card:hover { transform: translateY(-4px); box-shadow: 0 18px 56px rgba(91,43,224,.1); }
+
+.srv-top {
+  padding: 22px 22px 18px;
+}
+.srv-icon-wrap {
+  width: 52px; height: 52px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; margin-bottom: 14px;
+}
+.si-purple { background: rgba(91,43,224,.1); }
+.si-green  { background: rgba(46,170,46,.1); }
+.si-orange { background: rgba(249,98,0,.1); }
+
+.srv-name {
+  font-weight: 800; font-size: 1.1rem; color: var(--ink);
+  margin-bottom: 6px; line-height: 1.25;
+}
+.srv-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
+
+.srv-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.srv-list li {
+  display: flex; align-items: center; gap: 9px;
+  font-size: 0.86rem; font-weight: 600; color: var(--ink);
+}
+.srv-list li::before {
+  content: ''; width: 18px; height: 18px; border-radius: 50%;
+  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 900;
+}
+.li-purple::before { background: rgba(91,43,224,.12); color: var(--purple); content: '✓'; display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; font-size: 10px; }
+.li-green::before  { background: rgba(46,170,46,.12);  color: var(--green);  content: '✓'; display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; font-size: 10px; }
+.li-orange::before { background: rgba(249,98,0,.12);   color: var(--orange); content: '✓'; display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; font-size: 10px; }
+
+.srv-footer {
+  border-top: 1.5px solid var(--line); padding: 16px 22px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.srv-tag {
+  font-size: 0.72rem; font-weight: 700; padding: 5px 12px;
+  border-radius: 6px;
+}
+.st-purple { background: rgba(91,43,224,.1); color: var(--purple); }
+.st-green  { background: rgba(46,170,46,.1); color: var(--green); }
+.st-orange { background: rgba(249,98,0,.1); color: var(--orange); }
+
+/* ════════════════════════════
+   FOR STUDENTS
+════════════════════════════ */
+.students-sec { background: var(--white); padding: 80px 0; }
+
+.grade-cards {
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px;
+}
+.grade-card {
+  background: var(--light); border: 2px solid var(--line);
+  border-radius: 14px; padding: 22px 14px;
+  text-align: center; cursor: default;
+  transition: all 0.2s;
+}
+.grade-card:hover { border-color: var(--purple-l); background: rgba(91,43,224,.05); }
+.grade-card:nth-child(2) .gc-num { color: var(--green); }
+.grade-card:nth-child(3) .gc-num { color: var(--orange); }
+.grade-card:nth-child(5) .gc-num { color: var(--purple); }
+.grade-card:nth-child(6) .gc-num { color: var(--purple); }
+.gc-num { font-weight: 900; font-size: 1.6rem; color: var(--ink); letter-spacing: -0.02em; line-height: 1; margin-bottom: 5px; }
+.gc-label { font-size: 0.72rem; font-weight: 600; color: var(--muted); }
+
+/* ════════════════════════════
+   WHY US
+════════════════════════════ */
+.why-sec { background: var(--ink); padding: 80px 0; }
+
+.why-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.why-card {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 14px; padding: 24px 18px;
+  text-align: center;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+.why-card:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.22); transform: translateY(-3px); }
+.why-ico {
+  width: 52px; height: 52px; border-radius: 14px;
+  background: rgba(91,43,224,.25);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; margin: 0 auto 13px;
+}
+.why-card:nth-child(2) .why-ico { background: rgba(46,170,46,.25); }
+.why-card:nth-child(3) .why-ico { background: rgba(249,98,0,.25); }
+.why-card:nth-child(4) .why-ico { background: rgba(255,176,32,.25); }
+.why-card:nth-child(5) .why-ico { background: rgba(91,43,224,.25); }
+
+.why-title { font-weight: 800; font-size: 0.9rem; color: #fff; margin-bottom: 6px; }
+.why-desc  { font-size: 0.78rem; color: rgba(255,255,255,.4); line-height: 1.65; }
+
+/* tagline box */
+.why-cta {
+  margin-top: 36px;
+  background: linear-gradient(135deg, var(--purple) 0%, var(--purple-d) 100%);
+  border-radius: 16px; padding: 32px 36px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap;
+}
+.wcta-text { }
+.wcta-title { font-weight: 900; font-size: 1.6rem; color: #fff; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 5px; }
+.wcta-sub   { font-size: 0.9rem; color: rgba(255,255,255,.55); }
+
+/* ════════════════════════════
+   FEATURES ROW
+════════════════════════════ */
+.features-sec { background: var(--light); padding: 52px 0; }
+.features-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
+.feat {
+  display: flex; align-items: center; gap: 14px;
+  padding: 22px 28px; border-right: 1.5px solid var(--line);
+}
+.feat:last-child { border-right: none; }
+.feat-ico {
+  width: 44px; height: 44px; border-radius: 11px;
+  background: var(--white); border: 1.5px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.feat-title { font-weight: 800; font-size: 0.9rem; color: var(--ink); margin-bottom: 2px; }
+.feat-sub   { font-size: 0.77rem; color: var(--muted); }
+
+/* ════════════════════════════
+   CONTACT
+════════════════════════════ */
+.contact-sec { background: var(--white); padding: 80px 0; }
+
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+
+.ci-list { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
+.ci {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: var(--light); border: 1.5px solid var(--line);
+  border-radius: 12px; padding: 15px 17px;
+  transition: border-color 0.2s;
+}
+.ci:hover { border-color: var(--purple-l); }
+.ci-ico {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: rgba(91,43,224,.1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; flex-shrink: 0;
+}
+.ci-lbl { font-size: 0.64rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 3px; }
+.ci-val { font-size: 0.95rem; font-weight: 700; color: var(--ink); line-height: 1.45; }
+
+/* Enroll card */
+.enroll-card {
+  background: var(--ink); border-radius: 20px; padding: 36px 30px;
+  position: relative; overflow: hidden;
+}
+.enroll-card::before {
+  content: ''; position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(91,43,224,.4) 0%, transparent 70%);
+  pointer-events: none;
+}
+.ec-top { text-align: center; margin-bottom: 24px; }
+.ec-label { font-size: 0.78rem; color: rgba(255,255,255,.4); font-weight: 600; margin-bottom: 5px; }
+.ec-title {
+  font-weight: 900; font-size: 2rem; letter-spacing: -0.03em;
+  color: #fff; line-height: 1.15; margin-bottom: 8px;
+}
+.ec-title span { color: var(--orange); }
+.ec-sub { font-size: 0.85rem; color: rgba(255,255,255,.45); }
+.ec-divider { height: 1px; background: rgba(255,255,255,.08); margin: 20px 0; }
+.ec-website {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  font-size: 0.82rem; color: rgba(255,255,255,.4); font-weight: 600; margin-top: 14px;
+}
+.ec-website a { color: var(--purple-l); }
+.ec-website a:hover { text-decoration: underline; }
+
+/* ════════════════════════════
+   FOOTER
+════════════════════════════ */
+footer {
+  background: #060915; padding: 20px 0;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.foot-wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+}
+.foot-brand { display: flex; align-items: center; gap: 10px; }
+.foot-logo {
+  width: 28px; height: 28px; border-radius: 7px;
+  background: var(--purple); display: flex; align-items: center;
+  justify-content: center; font-weight: 900; font-size: 0.9rem; color: #fff;
+}
+.foot-name { font-weight: 800; font-size: 0.95rem; color: #fff; }
+.foot-name em { color: var(--purple-l); font-style: normal; }
+.foot-copy { font-size: 0.76rem; color: rgba(255,255,255,.24); }
+.foot-links { display: flex; gap: 18px; }
+.foot-links a { font-size: 0.76rem; color: rgba(255,255,255,.35); transition: color 0.15s; }
+.foot-links a:hover { color: rgba(255,255,255,.75); }
+.foot-tagline {
+  width: 100%; text-align: center;
+  font-size: 0.76rem; color: rgba(255,255,255,.2); letter-spacing: 0.08em;
+  padding-top: 10px; border-top: 1px solid rgba(255,255,255,.05);
+  text-transform: uppercase;
+}
+
+/* ════════════════════════════
+   RESPONSIVE
+════════════════════════════ */
+@media (max-width: 940px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-right { border-left: none; border-top: 1px solid rgba(255,255,255,.07); padding: 28px; }
+  .hero-left  { padding: 56px 0 40px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .grade-cards { grid-template-columns: repeat(3, 1fr); }
+  .why-grid  { grid-template-columns: repeat(3, 1fr); }
+  .features-strip { grid-template-columns: 1fr; }
+  .feat { border-right: none; border-bottom: 1.5px solid var(--line); }
+  .feat:last-child { border-bottom: none; }
+  .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+  .nav-links { display: none; }
+}
+
+@media (max-width: 600px) {
+  .grade-cards { grid-template-columns: repeat(2, 1fr); }
+  .why-grid  { grid-template-columns: repeat(2, 1fr); }
+  .wcta-text .wcta-title { font-size: 1.25rem; }
+  .hero h1 { font-size: 1.9rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<!-- ══ NAVBAR ══ -->
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-wrap">
+
+     <a href="#" class="nav-brand">
+  <div class="logo-hex">
+    <img src="/raju.jpg" alt="Quvon Tutorials Logo" class="logo-img">
+  </div>
+  <div class="brand-text">
+    <span class="brand-name">Quvon <em>Tutorials</em></span>
+    <span class="brand-tag">Learn · Code · Grow</span>
+  </div>
+</a>
+
+      <div class="nav-right">
+        <a href="tel:9392648991" class="nav-phone">
+          <span class="phone-dot"></span>
+          <span class="phone-label">9392648991</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══ HERO ══ -->
+<section class="hero" id="about">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-inner">
+
+      <div class="hero-left reveal">
+        <div class="flash-bar">
+          <span class="flash-dot"></span>
+          <span class="flash-text">New Batch Enrolling Now · 2026</span>
+        </div>
+
+        <div class="hero-tagline">ONE-TO-ONE &amp; SMALL BATCH</div>
+
+        <h1>
+          Tuitions<span class="plus"> + </span><span class="accent-orange">Coding</span><br>
+          <span class="plus">+ </span>Projects<span class="plus"> + </span><br>
+          <span class="accent-green">System Design</span>
+        </h1>
+
+        <p class="hero-sub">
+          To excel in exams &amp; placements. Quvon Tutorials is a Hyderabad-based institute offering
+          personalised coaching from school subjects to placement-ready tech skills.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-orange btn-lg">Enroll Now</a>
+          <a href="#services" class="btn btn-ghost btn-lg">Explore Courses</a>
+        </div>
+
+        <div class="grade-row">
+          <span class="grade-label">For</span>
+          <span class="grade-pill">7th</span>
+          <span class="grade-pill">8th</span>
+          <span class="grade-pill">9th</span>
+          <span class="grade-pill">10th</span>
+          <span class="grade-pill hi">11th &amp; 12th</span>
+          <span class="grade-pill hi">B.Tech</span>
+        </div>
+      </div>
+
+      <div class="hero-right reveal">
+        <div class="hr-label">What We Offer</div>
+
+        <div class="service-card">
+          <div class="sc-head">
+            <div class="sc-ico sc-ico-1">📚</div>
+            <div class="sc-title">Tuitions</div>
+            <span class="sc-badge sb-purple">Foundation</span>
+          </div>
+          <div class="sc-items">
+            <span class="sc-item">Maths</span>
+            <span class="sc-item">Science</span>
+            <span class="sc-item">Physics</span>
+            <span class="sc-item">Chemistry</span>
+            <span class="sc-item">Social</span>
+            <span class="sc-item">Languages</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="sc-head">
+            <div class="sc-ico sc-ico-2">💻</div>
+            <div class="sc-title">Coding &amp; Projects</div>
+            <span class="sc-badge sb-green">Hands-On</span>
+          </div>
+          <div class="sc-items">
+            <span class="sc-item">Python</span>
+            <span class="sc-item">C / C++</span>
+            <span class="sc-item">Java</span>
+            <span class="sc-item">Web Dev</span>
+            <span class="sc-item">Projects</span>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="sc-head">
+            <div class="sc-ico sc-ico-3">🚀</div>
+            <div class="sc-title">Placement Prep</div>
+            <span class="sc-badge sb-orange">Career</span>
+          </div>
+          <div class="sc-items">
+            <span class="sc-item">DSA</span>
+            <span class="sc-item">System Design</span>
+            <span class="sc-item">Aptitude</span>
+            <span class="sc-item">Mock Interviews</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FEATURES STRIP ══ -->
+<section class="features-sec">
+  <div class="container">
+    <div class="features-strip">
+      <div class="feat reveal">
+        <div class="feat-ico">🗓️</div>
+        <div>
+          <div class="feat-title">Flexible Batches</div>
+          <div class="feat-sub">Weekdays &amp; Weekends available</div>
+        </div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-ico">🌐</div>
+        <div>
+          <div class="feat-title">Online &amp; Offline</div>
+          <div class="feat-sub">Both modes of learning supported</div>
+        </div>
+      </div>
+      <div class="feat reveal">
+        <div class="feat-ico">👥</div>
+        <div>
+          <div class="feat-title">1:1 &amp; Small Batch</div>
+          <div class="feat-sub">Personal attention guaranteed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ SERVICES ══ -->
+<section class="services-sec" id="services">
+  <div class="container">
+
+    <div class="sec-head reveal">
+      <div class="sec-eyebrow">Our Courses</div>
+      <h2 class="sec-title">From School to Placements,<br>We've Got You Covered</h2>
+      <p class="sec-sub">Three focused pillars — strong academic base, real coding skills, and career-ready placement prep.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="srv-card reveal">
+        <div class="srv-top">
+          <div class="srv-icon-wrap si-purple">📚</div>
+          <div class="srv-name">Tuitions That Build Strong Base</div>
+          <p class="srv-desc">Concept-first teaching for school students that makes exams feel easy.</p>
+          <ul class="srv-list">
+            <li class="li-purple">Maths</li>
+            <li class="li-purple">Science</li>
+            <li class="li-purple">Physics</li>
+            <li class="li-purple">Chemistry</li>
+            <li class="li-purple">Social Studies</li>
+            <li class="li-purple">Languages</li>
+          </ul>
+        </div>
+        <div class="srv-footer">
+          <span class="srv-tag st-purple">7th – 12th Grade</span>
+          <a href="#contact" class="btn btn-outline" style="padding:7px 16px;font-size:.78rem;">Enroll</a>
+        </div>
+      </div>
+
+      <div class="srv-card reveal">
+        <div class="srv-top">
+          <div class="srv-icon-wrap si-green">💻</div>
+          <div class="srv-name">Coding &amp; Project Building</div>
+          <p class="srv-desc">Practical programming from scratch to mini &amp; major project development.</p>
+          <ul class="srv-list">
+            <li class="li-green">Python</li>
+            <li class="li-green">C / C++</li>
+            <li class="li-green">Java</li>
+            <li class="li-green">Web Development</li>
+            <li class="li-green">Mini &amp; Major Projects</li>
+          </ul>
+        </div>
+        <div class="srv-footer">
+          <span class="srv-tag st-green">All Levels</span>
+          <a href="#contact" class="btn btn-outline" style="padding:7px 16px;font-size:.78rem;">Enroll</a>
+        </div>
+      </div>
+
+      <div class="srv-card reveal">
+        <div class="srv-top">
+          <div class="srv-icon-wrap si-orange">🚀</div>
+          <div class="srv-name">System Design &amp; Placement Prep</div>
+          <p class="srv-desc">Everything you need to crack top tech company interviews with confidence.</p>
+          <ul class="srv-list">
+            <li class="li-orange">DSA</li>
+            <li class="li-orange">System Design</li>
+            <li class="li-orange">Aptitude</li>
+            <li class="li-orange">Resume Building</li>
+            <li class="li-orange">Mock Interviews</li>
+          </ul>
+        </div>
+        <div class="srv-footer">
+          <span class="srv-tag st-orange">B.Tech / Final Year</span>
+          <a href="#contact" class="btn btn-outline" style="padding:7px 16px;font-size:.78rem;">Enroll</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOR STUDENTS ══ -->
+<section class="students-sec" id="students">
+  <div class="container">
+
+    <div class="sec-head reveal" style="text-align:center;">
+      <div class="sec-eyebrow" style="justify-content:center;">For Students Of</div>
+      <h2 class="sec-title">Every Stage of Your Journey</h2>
+      <p class="sec-sub" style="margin:0 auto;">From school foundations to college placements — we teach at every level.</p>
+    </div>
+
+    <div class="grade-cards reveal">
+      <div class="grade-card">
+        <div class="gc-num">7<span style="font-size:1rem;color:var(--muted);">th</span></div>
+        <div class="gc-label">Grade 7</div>
+      </div>
+      <div class="grade-card">
+        <div class="gc-num">8<span style="font-size:1rem;color:var(--muted);">th</span></div>
+        <div class="gc-label">Grade 8</div>
+      </div>
+      <div class="grade-card">
+        <div class="gc-num">9<span style="font-size:1rem;color:var(--muted);">th</span></div>
+        <div class="gc-label">Grade 9</div>
+      </div>
+      <div class="grade-card">
+        <div class="gc-num">10<span style="font-size:1rem;color:var(--muted);">th</span></div>
+        <div class="gc-label">Grade 10</div>
+      </div>
+      <div class="grade-card">
+        <div class="gc-num" style="font-size:1.1rem;line-height:1.3;color:var(--purple);">Inter<br><span style="font-size:.8rem;">11th &amp; 12th</span></div>
+        <div class="gc-label">Intermediate</div>
+      </div>
+      <div class="grade-card">
+        <div class="gc-num" style="color:var(--purple);">B.Tech</div>
+        <div class="gc-label">Engineering</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ WHY QUVON TUTORIALS ══ -->
+<section class="why-sec" id="why">
+  <div class="container">
+
+    <div class="sec-head reveal" style="margin-bottom:36px;">
+      <div class="sec-eyebrow" style="color:rgba(255,255,255,.5);">
+        <span style="background:rgba(255,255,255,.3);"></span>
+        Why Quvon Tutorials
+      </div>
+      <h2 class="sec-title" style="color:#fff;">Better Prep. Better Scores.<br>Better Career.</h2>
+      <p class="sec-sub" style="color:rgba(255,255,255,.4);">Everything we do is designed to make you genuinely ready — not just course-complete.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-ico">🧠</div>
+        <div class="why-title">Concept Clarity</div>
+        <p class="why-desc">We teach the why, not just the what. Deep understanding over rote learning.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-ico">📖</div>
+        <div class="why-title">Personalised Learning</div>
+        <p class="why-desc">1:1 and small-batch sessions tailored to your pace and learning style.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-ico">🎯</div>
+        <div class="why-title">Exam Excellence</div>
+        <p class="why-desc">Structured preparation with practice tests and targeted topic coverage.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-ico">🏆</div>
+        <div class="why-title">Placement Ready</div>
+        <p class="why-desc">Interview practice, DSA mastery and resume building to land your dream job.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-ico">📈</div>
+        <div class="why-title">Future Ready</div>
+        <p class="why-desc">Curriculum aligned with what industry expects — today and tomorrow.</p>
+      </div>
+    </div>
+
+    <div class="why-cta reveal">
+      <div class="wcta-text">
+        <div class="wcta-title">From School to Placements —<br>We're With You at Every Step!</div>
+        <div class="wcta-sub">Join hundreds of students who have transformed their careers with Quvon Tutorials.</div>
+      </div>
+      <a href="#contact" class="btn btn-orange btn-lg">Enroll Now →</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ CONTACT ══ -->
+<section class="contact-sec" id="contact">
+  <div class="container">
+
+    <div class="contact-grid">
+
+      <div class="reveal">
+        <div class="sec-head" style="margin-bottom:0;">
+          <div class="sec-eyebrow">Get In Touch</div>
+          <h2 class="sec-title">Ready to Start<br>Your Journey?</h2>
+          <p class="sec-sub">Reach out on call or WhatsApp — we'll guide you to the right batch and get you enrolled fast.</p>
+        </div>
+
+        <div class="ci-list">
+          <div class="ci">
+            <div class="ci-ico">📞</div>
+            <div>
+              <div class="ci-lbl">Call / WhatsApp</div>
+              <div class="ci-val">9392648991</div>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-ico">📍</div>
+            <div>
+              <div class="ci-lbl">Location</div>
+              <div class="ci-val">S.B. Mansion, Darabjung Colony,<br>Madannapet, Hyderabad</div>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-ico">🌐</div>
+            <div>
+              <div class="ci-lbl">Website</div>
+              <div class="ci-val"><a href="https://quvon-tutorials.vercel.app" style="color:var(--purple);">quvon-tutorials.vercel.app</a></div>
+            </div>
+          </div>
+          <div class="ci">
+            <div class="ci-ico">🗓️</div>
+            <div>
+              <div class="ci-lbl">Batch Availability</div>
+              <div class="ci-val">Weekdays &amp; Weekends · Online &amp; Offline</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="enroll-card">
+          <div class="ec-top">
+            <div class="ec-label">Call or WhatsApp to enroll</div>
+            <div class="ec-title"><span>Better Prep.</span><br>Better Career.</div>
+            <div class="ec-sub">Seats are limited. Enroll before they fill up.</div>
+          </div>
+          <a href="tel:9392648991" class="btn btn-orange btn-full btn-lg">📞 Call Now to Enroll</a>
+          <div class="ec-divider"></div>
+          <a href="https://wa.me/919392648991" class="btn btn-ghost btn-full" style="margin-bottom:10px;">💬 WhatsApp Us</a>
+          <a href="#services" class="btn btn-ghost btn-full">Browse Courses</a>
+          <div class="ec-website">
+            🌐 <a href="https://quvon-tutorials.vercel.app">quvon-tutorials.vercel.app</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="container">
+    <div class="foot-wrap">
+      <div class="foot-brand">
+        <div class="foot-logo">Q</div>
+        <span class="foot-name">Quvon <em>Tutorials</em></span>
+      </div>
+      <div class="foot-copy">© 2026 Quvon Tutorials · All rights reserved</div>
+      <div class="foot-links">
+        <a href="#about">About</a>
+        <a href="#services">Courses</a>
+        <a href="#why">Why Us</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="foot-tagline">From School to Placements — We're With You at Every Step!</div>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>*/
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
