@@ -68,7 +68,7 @@ a { text-decoration: none; color: inherit; }
 /* ════════════════════════════
    NAVBAR
 ════════════════════════════ */
-.navbar {
+/* .navbar {
   position: sticky; top: 0; z-index: 300;
   background: rgba(255,255,255,0.97);
   backdrop-filter: blur(20px);
@@ -107,7 +107,57 @@ a { text-decoration: none; color: inherit; }
 }
 .nav-links a:hover { color: var(--purple); background: var(--light); }
 
-.nav-right { display: flex; align-items: center; gap: 10px; }
+.nav-right { display: flex; align-items: center; gap: 10px; } */
+  .navbar {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+}
+
+.nav-brand {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none; flex-shrink: 0;
+}
+
+.logo-hex {
+  width: 32px; height: 32px; flex-shrink: 0;
+  position: relative; display: flex; align-items: center; justify-content: center;
+}
+.logo-hex svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.logo-hex span { position: relative; z-index: 1; font-size: 11px; font-weight: 800; color: #fff; line-height: 1; }
+
+.brand-text { display: flex; flex-direction: column; gap: 0; }
+.brand-name { font-family: 'Syne', sans-serif; font-size: 1.15rem; color: var(--navy); letter-spacing: -0.01em; line-height: 1.15; }
+.brand-name em { color: var(--blue); font-style: normal; }
+.brand-tag  { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); }
+
+.nav-right { display: flex; align-items: center; gap: 9px; flex-shrink: 0; }
+
+.nav-phone {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.84rem; font-weight: 700; color: var(--ink);
+  background: var(--light); border: 1px solid var(--line);
+  border-radius: 8px; padding: 7px 14px;
+  text-decoration: none; transition: border-color 0.15s;
+}
+.nav-phone:hover { border-color: #b0bed4; }
+
+.phone-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 2px rgba(0,184,122,.2);
+  flex-shrink: 0;
+}
+
 /* .nav-phone {
   display: flex; align-items: center; gap: 8px;
   font-size: 0.88rem; font-weight: 700; color: var(--ink);
@@ -550,32 +600,28 @@ footer {
 <body>
 
 <!-- ══ NAVBAR ══ -->
+<!-- ══ NAVBAR ══ -->
 <nav class="navbar">
   <div class="container">
     <div class="nav-wrap">
-      <a href="#" class="nav-brand">
+
+     <a href="#" class="nav-brand">
   <div class="logo-hex">
-    <img src="/raju.jpg" alt="Quvon Labs Logo" class="logo-img">
+    <img src="/raju.jpg" alt="Quvon Tutorials Logo" class="logo-img">
   </div>
   <div class="brand-text">
-    <span class="brand-name">Quvon <em>Labs</em></span>
+    <span class="brand-name">Quvon <em>Tutorials</em></span>
     <span class="brand-tag">Learn · Code · Grow</span>
   </div>
 </a>
 
-      <div class="nav-links">
-        <a href="#services">Courses</a>
-        <a href="#students">Students</a>
-        <a href="#why">Why Us</a>
-        <a href="#contact">Contact</a>
-      </div>
-
       <div class="nav-right">
         <a href="tel:9392648991" class="nav-phone">
           <span class="phone-dot"></span>
-          9392648991
+          <span class="phone-label">9392648991</span>
         </a>
       </div>
+
     </div>
   </div>
 </nav>
